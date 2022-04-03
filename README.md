@@ -1,6 +1,6 @@
-# example
+# Prayer time remonder
 
-Example app
+An application to remond for prayer
 
 # usage
 

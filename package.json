@@ -1,7 +1,10 @@
 {
-  "name": "example",
-  "private": true,
-  "version": "0.0.0",
+  "name": "prayer-time-reminder",
+  "version": "1.0.0",
+  "author": {
+    "name": "MD. Hazzaz Bin Faiz",
+    "email": "hazzazbinfaiz@gmail.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
