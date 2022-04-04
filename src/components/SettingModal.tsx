@@ -1,6 +1,12 @@
 import { Dialog, Transition } from '@headlessui/react'
+import { Fragment } from 'react'
 
-export default function MyModal({ isOpen }) {
+type SettingModalProps = {
+    isOpen: boolean,
+    closeModal: () => void
+}
+
+export default function SettingModal({ isOpen, closeModal } : SettingModalProps) {
 
     return (
         <>
@@ -21,7 +27,7 @@ export default function MyModal({ isOpen }) {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                         >
-                            <Dialog.Overlay className="fixed inset-0" />
+                            <Dialog.Overlay className="fixed inset-0 bg-gray-500 opacity-30" />
                         </Transition.Child>
 
                         {/* This element is to trick the browser into centering the modal contents. */}
@@ -40,27 +46,26 @@ export default function MyModal({ isOpen }) {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                            <div className="inline-block w-full max-w-3xl my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded">
                                 <Dialog.Title
                                     as="h3"
-                                    className="text-lg font-medium leading-6 text-gray-900"
+                                    className="text-lg font-medium leading-6 p-4 text-gray-900 shadow"
                                 >
-                                    Payment successful
+                                    Setting
                                 </Dialog.Title>
-                                <div className="mt-2">
+                                <div className="p-4">
                                     <p className="text-sm text-gray-500">
-                                        Your payment has been successfully submitted. We’ve sent you
-                                        an email with all of the details of your order.
+                                        setting data
                                     </p>
                                 </div>
 
-                                <div className="mt-4">
+                                <div className="mt-4 flex justify-end p-2 border-t border-gray-200">
                                     <button
                                         type="button"
-                                        className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                                        className="inline-flex justify-center px-4 py-2 text-sm font-medium text-red-900 bg-red-100 border border-transparent rounded-md hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500"
                                         onClick={closeModal}
                                     >
-                                        Got it, thanks!
+                                        Close
                                     </button>
                                 </div>
                             </div>
