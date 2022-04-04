@@ -27,26 +27,30 @@ function App() {
     })
   }, [])
 
-  const setIndex = (index : string) => {
-    let i : number = +index
+  const setIndex = (index: string) => {
+    let i: number = +index
     setCountDownIndex(i)
   }
-  
+
   const [countDownIndex, setCountDownIndex] = useState(0)
   const [stringToShow, setStringToShow] = useState('')
 
   const interval = () => {
-    if (times[countDownIndex] && typeof times[countDownIndex].time !== 'string') {
-      const diff = DateTime.now().diff(times[countDownIndex].time, ['hours','minutes','seconds']).toObject();
-      const h = Math.abs(diff.hours ?? 0)
-      const m = Math.abs(diff.minutes ?? 0)
-      const s = Math.floor(Math.abs(diff.seconds ?? 0))
-      let str = h >= 10 ? h.toString() : '0'+h.toString()
-      str += ':'
-      str += m >= 10 ? m.toString() : '0'+m.toString()
-      str += ':'
-      str += s >= 10 ? s.toString() : '0'+s.toString()
-      setStringToShow(str)
+
+    if (times[countDownIndex]) {
+      const target = times[countDownIndex].time
+      if (typeof target !== 'string') {
+        const diff = DateTime.now().diff(times[countDownIndex].time as any, ['hours', 'minutes', 'seconds']).toObject();
+        const h = Math.abs(diff.hours ?? 0)
+        const m = Math.abs(diff.minutes ?? 0)
+        const s = Math.floor(Math.abs(diff.seconds ?? 0))
+        let str = h >= 10 ? h.toString() : '0' + h.toString()
+        str += ':'
+        str += m >= 10 ? m.toString() : '0' + m.toString()
+        str += ':'
+        str += s >= 10 ? s.toString() : '0' + s.toString()
+        setStringToShow(str)
+      }
     }
   }
 
@@ -67,7 +71,7 @@ function App() {
       <SettingModal isOpen={showSettingModal} closeModal={() => setShowSettingMOdal(false)} />
       <div className="min-h-screen relative w-full flex justify-center items-center">
         <CogButton onClick={() => setShowSettingMOdal(true)} />
-        <Watch text={stringToShow}/>
+        <Watch text={stringToShow} />
         <div className="w-48 absolute top-20 right-8">
           {times.map((time, i) => (
             <div className={`w-full flex justify-between ${countDownIndex == i ? 'bg-blue-400' : 'bg-blue-200'} p-2 rounded-lg mt-2`}
