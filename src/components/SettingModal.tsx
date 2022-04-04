@@ -1,12 +1,15 @@
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Dialog, Tab, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react'
+import { APIManager } from '../api/manager'
 
 type SettingModalProps = {
     isOpen: boolean,
     closeModal: () => void
 }
 
-export default function SettingModal({ isOpen, closeModal } : SettingModalProps) {
+export default function SettingModal({ isOpen, closeModal }: SettingModalProps) {
+
+    const [opacity, setOpacity] = useState(0)
 
     return (
         <>
@@ -53,16 +56,37 @@ export default function SettingModal({ isOpen, closeModal } : SettingModalProps)
                                 >
                                     Setting
                                 </Dialog.Title>
-                                <div className="p-4">
-                                    <p className="text-sm text-gray-500">
-                                        setting data
-                                    </p>
-                                </div>
-
+                                <Tab.Group>
+                                    <Tab.List as={'div'} className="w-full flex">
+                                        <Tab className={({ selected }) =>
+                                            'w-1/2 p-2 rounded-t border' + (selected ? 'shadow' : '')
+                                        }>API Options</Tab>
+                                        <Tab className={({ selected }) =>
+                                            'w-1/2 p-2 rounded-t border' + (selected ? 'shadow' : '')
+                                        }>Site setting</Tab>
+                                    </Tab.List>
+                                    <Tab.Panels>
+                                        <Tab.Panel>{APIManager.getProvider().getOptionComponent()()}</Tab.Panel>
+                                        <Tab.Panel>
+                                            <div className="p-4 relative">
+                                                <label htmlFor="customRange1" className="form-label">Time list opacity ({opacity}%)</label>
+                                                <input
+                                                    type="range"
+                                                    className=" form-range appearance-none w-full h-6 p-0 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none"
+                                                    id="customRange1"
+                                                    min="0"
+                                                    value={opacity}
+                                                    onChange={e => setOpacity(parseInt(e.currentTarget.value))}
+                                                    max="100"
+                                                />
+                                            </div>
+                                        </Tab.Panel>
+                                    </Tab.Panels>
+                                </Tab.Group>
                                 <div className="mt-4 flex justify-end p-2 border-t border-gray-200">
                                     <button
                                         type="button"
-                                        className="inline-flex justify-center px-4 py-2 text-sm font-medium text-red-900 bg-red-100 border border-transparent rounded-md hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500"
+                                        className="focus:outline-none bg-red-200 py-1 px-4 text-red-700 text-sm font-semibold rounded"
                                         onClick={closeModal}
                                     >
                                         Close
