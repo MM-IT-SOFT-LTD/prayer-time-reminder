@@ -38,7 +38,11 @@ export class prayZone implements APIProvider {
             let response = await fetch('https://api.ipify.org?format=json')
             let ip = await response.json()
             ip = ip.ip
-            response = await fetch('https://api.pray.zone/v2/times/today.json?ip='+ip)
+            let url = 'https://api.pray.zone/v2/times/today.json?ip='+ip
+            if (this.option.school) {
+                url += '&school='+this.option.school
+            }
+            response = await fetch(url)
             let results = await response.json()
             results = results.results.datetime[0].times
             const times : Time[] = []

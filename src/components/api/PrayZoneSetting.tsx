@@ -16,8 +16,25 @@ export function PrayZoneSetting() {
     return (
         <div className="p-4">
             <div className="w-full">
+                <label htmlFor="formFile" className="form-label inline-block mb-2 text-gray-700">School</label>
+                <select value={options?.school} onChange={e => setOptions({ ...options, school: e.currentTarget.value })} className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="School">
+                    <option value={0}>Ithna Ashari</option>
+                    <option value={1}>University of Islamic Sciences, Karachi</option>
+                    <option value={2}>Islamic Society of North America</option>
+                    <option value={3}>Muslim World League</option>
+                    <option value={4}>Umm Al-Qura University, Mecca	18</option>
+                    <option value={5}>Egyptian General Authority of Survey</option>
+                    <option value={7}>Institute of Geophysics, University of Tehran	17</option>
+                    <option value={8}>Morocco</option>
+                    <option value={9}>Department of Islamic Advancement, Malaysia (JAKIM)</option>
+                    <option value={10}>Majlis Ugama Islam Singapura</option>
+                    <option value={11}>Union des Organisations Islamiques de France</option>
+                    <option value={12}>Turkey</option>
+                </select>
+            </div>
+            <div className="w-full">
                 <label htmlFor="formFile" className="form-label inline-block mb-2 text-gray-700">Method</label>
-                <select value={options.method} onChange={e => setOptions({...options, method: e.currentTarget.value})} className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Fetch method">
+                <select value={options.method} onChange={e => setOptions({ ...options, method: e.currentTarget.value })} className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Fetch method">
                     <option value={0}>IP address</option>
                     <option value={1}>City</option>
                     <option value={2}>Location</option>
@@ -26,7 +43,7 @@ export function PrayZoneSetting() {
             {options?.method == '1' && (
                 <div className="w-full mt-4">
                     <label htmlFor="formFile" className="form-label inline-block mb-2 text-gray-700">City</label>
-                    <select value={options?.city} onChange={e => setOptions({...options, city: e.currentTarget.value})} className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="City">
+                    <select value={options?.city} onChange={e => setOptions({ ...options, city: e.currentTarget.value })} className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="City">
                         <option value="shanghai">Shanghai - China</option>
                         <option value="istanbul">Istanbul - Turkey</option>
                         <option value="buenos-aires">Buenos Aires - Argentina</option>
@@ -62,24 +79,24 @@ export function PrayZoneSetting() {
             )}
             {options?.method == '2' && (
                 <>
-                <div className="w-full mt-2">
-                    <div>
-                        <label htmlFor="latitude" className="form-label inline-block mb-2 text-gray-700">Latitude</label>
-                        <input type="number" step="0.00000000001" value={options?.latitude} onChange={e => setOptions({...options, latitude: e.currentTarget.value})} className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="latitude" />
+                    <div className="w-full mt-2">
+                        <div>
+                            <label htmlFor="latitude" className="form-label inline-block mb-2 text-gray-700">Latitude</label>
+                            <input type="number" step="0.00000000001" value={options?.latitude} onChange={e => setOptions({ ...options, latitude: e.currentTarget.value })} className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="latitude" />
+                        </div>
                     </div>
-                </div>
-                <div className="w-full mt-2">
-                    <div>
-                        <label htmlFor="longitude" className="form-label inline-block mb-2 text-gray-700">Longitude</label>
-                        <input type="number" step="0.00000000001" value={options?.longitude} onChange={e => setOptions({...options, longitude: e.currentTarget.value})} className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="longitude" />
+                    <div className="w-full mt-2">
+                        <div>
+                            <label htmlFor="longitude" className="form-label inline-block mb-2 text-gray-700">Longitude</label>
+                            <input type="number" step="0.00000000001" value={options?.longitude} onChange={e => setOptions({ ...options, longitude: e.currentTarget.value })} className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="longitude" />
+                        </div>
                     </div>
-                </div>
-                <div className="w-full mt-2">
-                    <div>
-                        <label htmlFor="elevation" className="form-label inline-block mb-2 text-gray-700">Elevation</label>
-                        <input type="number" step="0.001" value={options?.elevation} onChange={e => setOptions({...options, elevation: e.currentTarget.value})} className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="elevation" />
+                    <div className="w-full mt-2">
+                        <div>
+                            <label htmlFor="elevation" className="form-label inline-block mb-2 text-gray-700">Elevation</label>
+                            <input type="number" step="0.001" value={options?.elevation} onChange={e => setOptions({ ...options, elevation: e.currentTarget.value })} className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="elevation" />
+                        </div>
                     </div>
-                </div>
                 </>
             )}
             <div className="w-fumll flex justify-end mt-4">
