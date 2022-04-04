@@ -33,8 +33,27 @@ export class prayZone implements APIProvider {
         this.option = option
         localStorage.setItem('pray-zone-options', JSON.stringify(this.option))
     }
-    getTimes(): Time[] {
-        throw new Error("Method not implemented.")
+    async getTimes(): Promise<Time[]> {
+        if (this.option.method == '0') {
+            let response = await fetch('https://api.ipify.org?format=json')
+            let ip = await response.json()
+            ip = ip.ip
+            response = await fetch('https://api.pray.zone/v2/times/today.json?ip='+ip)
+            let results = await response.json()
+            results = results.results.datetime[0].times
+            const times : Time[] = []
+            Object.keys(results).forEach(key => {
+                times.push({
+                    name: key,
+                    time: results[key]
+                })
+            })
+            return times
+        }
+
+         // todo add city and location api  https://prayertimes.date/api/docs/today
+
+        return []
     }
     
 }

@@ -1,25 +1,15 @@
-enum TimeType {
-    Fazr,
-    Duhr,
-    Asr,
-    Magrib,
-    Esa,
-    Sunrise,
-    Sunset
-}
-
+import { DateTime } from "luxon"
 
 class Time {
-    type : TimeType
-    time: string 
+    name : string
+    time: string | DateTime
 
-    constructor(type: TimeType, time: string) {
-        this.type = type
+    constructor(name: string, time: string) {
+        this.name = name
         this.time = time
     }
 }
 
 export {
-    TimeType,
     Time
 }
