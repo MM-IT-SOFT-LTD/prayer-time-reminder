@@ -17,14 +17,22 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
-
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    
-    - name: Install yarn
-      run: npm install -g yarn
+        cache: 'yarn'
 
     - name: Build
-      run: yarn && yarn build
+      run: yarn install && yarn build
+      
+  gh_page:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: dist
+    
