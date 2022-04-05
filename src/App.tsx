@@ -30,15 +30,19 @@ function App() {
     })
   }, [])
 
+  const [countDownIndex, setCountDownIndex] = useState(-1)
+  const [stringToShow, setStringToShow] = useState('')
+
+  useEffect(() => {
+    const intervalPointer = setInterval(interval, 100)
+    return () => clearInterval(intervalPointer)
+  }, [countDownIndex])
+
   const setIndex = (index: number) => {
     setCountDownIndex(index)
   }
 
-  const [countDownIndex, setCountDownIndex] = useState(0)
-  const [stringToShow, setStringToShow] = useState('')
-
   const interval = () => {
-
     if (times[countDownIndex]) {
       const target = times[countDownIndex].time
       if (typeof target !== 'string') {
@@ -56,18 +60,6 @@ function App() {
     }
   }
 
-  var oldInterval: number | null = null
-
-  useEffect(() => {
-    oldInterval = setInterval(interval, 100)
-
-    return () => {
-      if (oldInterval) {
-        clearInterval(oldInterval)
-      }
-    }
-  }, [countDownIndex])
-
   return (
     <div className="min-h-screen w-full flex justify-center flex-col items-center">
       <SettingModal isOpen={showSettingModal} closeModal={() => setShowSettingMOdal(false)} />
@@ -76,7 +68,7 @@ function App() {
         <Watch text={stringToShow} />
         <div className="w-48 absolute top-20 right-8">
           {times.map((time, i) => (
-            <div className={`w-full flex justify-between ${countDownIndex == i ? 'bg-blue-400' : 'bg-blue-200'} p-2 rounded-lg mt-2`}
+            <div key={i} className={`w-full flex justify-between ${countDownIndex == i ? 'bg-blue-400' : 'bg-blue-200'} p-2 rounded-lg mt-2`}
               onClick={e => setIndex(i)}
             >
               <span>{time.name}</span>
