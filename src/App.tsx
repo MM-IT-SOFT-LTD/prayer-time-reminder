@@ -25,7 +25,12 @@ function App() {
       })
       setTimes(times)
       if (times.length) {
-        setIndex(0)
+        const stored = localStorage.getItem('preferred-time-index')
+        if (typeof stored === 'string') {
+          setIndex(+stored)
+        } else {
+          setIndex( 0)
+        }
       }
     })
   }, [])
@@ -40,6 +45,7 @@ function App() {
 
   const setIndex = (index: number) => {
     setCountDownIndex(index)
+    localStorage.setItem('preferred-time-index', index.toString())
   }
 
   const interval = () => {
