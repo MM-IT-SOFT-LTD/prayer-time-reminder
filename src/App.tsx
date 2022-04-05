@@ -24,6 +24,9 @@ function App() {
         return time
       })
       setTimes(times)
+      if (times.length) {
+        setIndex(0)
+      }
     })
   }, [])
 
