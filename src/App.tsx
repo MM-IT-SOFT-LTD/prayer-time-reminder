@@ -66,7 +66,7 @@ function App() {
       <div className="min-h-screen relative w-full flex justify-center items-center">
         <CogButton onClick={() => setShowSettingMOdal(true)} />
         <Watch text={stringToShow} />
-        <div className="w-48 absolute top-20 right-8">
+        <div className="w-48 absolute top-20 right-8 opacity-10 hover:opacity-100 transition duration-500">
           {times.map((time, i) => (
             <div key={i} className={`w-full flex justify-between ${countDownIndex == i ? 'bg-blue-400' : 'bg-blue-200'} p-2 rounded-lg mt-2`}
               onClick={e => setIndex(i)}
