@@ -27,9 +27,8 @@ function App() {
     })
   }, [])
 
-  const setIndex = (index: string) => {
-    let i: number = +index
-    setCountDownIndex(i)
+  const setIndex = (index: number) => {
+    setCountDownIndex(index)
   }
 
   const [countDownIndex, setCountDownIndex] = useState(0)
