@@ -29,7 +29,7 @@ function App() {
         if (typeof stored === 'string') {
           setIndex(+stored)
         } else {
-          setIndex( 0)
+          setIndex(0)
         }
       }
     })
@@ -52,7 +52,11 @@ function App() {
     if (times[countDownIndex]) {
       const target = times[countDownIndex].time
       if (typeof target !== 'string') {
-        const diff = DateTime.now().diff(times[countDownIndex].time as any, ['hours', 'minutes', 'seconds']).toObject();
+        let subDays = 0
+        if (target < DateTime.now()) {
+          subDays = 1
+        }
+        const diff = DateTime.now().minus({ days: subDays }).diff(target as any, ['hours', 'minutes', 'seconds']).toObject();
         const h = Math.abs(diff.hours ?? 0)
         const m = Math.abs(diff.minutes ?? 0)
         const s = Math.floor(Math.abs(diff.seconds ?? 0))
