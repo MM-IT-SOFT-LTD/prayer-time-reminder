@@ -52,11 +52,11 @@ function App() {
     if (times[countDownIndex]) {
       const target = times[countDownIndex].time
       if (typeof target !== 'string') {
-        let subDays = 0
+        let addDays = 0
         if (target < DateTime.now()) {
-          subDays = 1
+          addDays = 1
         }
-        const diff = DateTime.now().minus({ days: subDays }).diff(target as any, ['hours', 'minutes', 'seconds']).toObject();
+        const diff = DateTime.now().diff(target.plus({ days: addDays }), ['hours', 'minutes', 'seconds']).toObject();
         const h = Math.abs(diff.hours ?? 0)
         const m = Math.abs(diff.minutes ?? 0)
         const s = Math.floor(Math.abs(diff.seconds ?? 0))
