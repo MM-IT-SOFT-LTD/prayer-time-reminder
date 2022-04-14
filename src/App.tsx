@@ -37,6 +37,7 @@ function App() {
 
   const [countDownIndex, setCountDownIndex] = useState(-1)
   const [stringToShow, setStringToShow] = useState('')
+  const [opacity, setOpacity] = useState(parseInt(localStorage.getItem('eightSideOpacity') ?? '10'))
 
   useEffect(() => {
     const intervalPointer = setInterval(interval, 100)
@@ -72,11 +73,11 @@ function App() {
 
   return (
     <div className="min-h-screen w-full flex justify-center flex-col items-center">
-      <SettingModal isOpen={showSettingModal} closeModal={() => setShowSettingMOdal(false)} />
+      <SettingModal isOpen={showSettingModal} opacity={opacity} setOpacity={setOpacity} closeModal={() => setShowSettingMOdal(false)} />
       <div className="min-h-screen relative w-full flex justify-center items-center">
         <CogButton onClick={() => setShowSettingMOdal(true)} />
         <Watch text={stringToShow} />
-        <div className="w-48 absolute top-20 right-8 opacity-10 hover:opacity-100 transition duration-500">
+        <div className="w-48 absolute top-20 right-8 hover:opacity-100 transition duration-500" style={{ opacity: opacity+'%' }}>
           {times.map((time, i) => (
             <div key={i} className={`w-full flex justify-between ${countDownIndex == i ? 'bg-blue-400' : 'bg-blue-200'} p-2 rounded-lg mt-2`}
               onClick={e => setIndex(i)}

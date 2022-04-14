@@ -7,9 +7,13 @@ type SettingModalProps = {
     closeModal: () => void
 }
 
-export default function SettingModal({ isOpen, closeModal }: SettingModalProps) {
+export default function SettingModal({ isOpen, closeModal, opacity, setOpacity }: SettingModalProps) {
 
-    const [opacity, setOpacity] = useState(0)
+    const handleOpacityChange = (event) => {
+        const _opacity = parseInt(event.currentTarget.value)
+        setOpacity(_opacity)
+        localStorage.setItem('eightSideOpacity', _opacity)
+    }
 
     return (
         <>
@@ -76,7 +80,7 @@ export default function SettingModal({ isOpen, closeModal }: SettingModalProps) 
                                                     id="customRange1"
                                                     min="0"
                                                     value={opacity}
-                                                    onChange={e => setOpacity(parseInt(e.currentTarget.value))}
+                                                    onChange={handleOpacityChange}
                                                     max="100"
                                                 />
                                             </div>
