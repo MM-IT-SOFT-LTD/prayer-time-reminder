@@ -37,7 +37,7 @@ function App() {
 
   const [countDownIndex, setCountDownIndex] = useState(-1)
   const [stringToShow, setStringToShow] = useState('')
-  const [opacity, setOpacity] = useState(parseInt(localStorage.getItem('eightSideOpacity') ?? '10'))
+  const [opacity, setOpacity] = useState(parseInt(localStorage.getItem('rightSideOpacity') ?? '10'))
 
   useEffect(() => {
     const intervalPointer = setInterval(interval, 100)

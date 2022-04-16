@@ -1,18 +1,20 @@
 import { Dialog, Tab, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { ChangeEvent, Dispatch, Fragment, SetStateAction, useState } from 'react'
 import { APIManager } from '../api/manager'
 
 type SettingModalProps = {
     isOpen: boolean,
-    closeModal: () => void
+    closeModal: () => void,
+    opacity: number,
+    setOpacity: Dispatch<SetStateAction<number>>
 }
 
 export default function SettingModal({ isOpen, closeModal, opacity, setOpacity }: SettingModalProps) {
 
-    const handleOpacityChange = (event) => {
+    const handleOpacityChange = (event: ChangeEvent<{ value: string }>) => {
         const _opacity = parseInt(event.currentTarget.value)
         setOpacity(_opacity)
-        localStorage.setItem('eightSideOpacity', _opacity)
+        localStorage.setItem('rightSideOpacity', _opacity.toString())
     }
 
     return (
