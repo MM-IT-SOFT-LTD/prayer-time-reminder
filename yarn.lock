@@ -285,9 +285,9 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@types/luxon@^2.3.1":
-  version "2.3.1"
-  resolved "https://registry.npmjs.org/@types/luxon/-/luxon-2.3.1.tgz"
+"@types/luxon@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/luxon/-/luxon-3.0.0.tgz#47fb7891e41875fce7018a8bd3d09b204c5621f5"
 
 "@types/prop-types@*":
   version "15.7.4"
