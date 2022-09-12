@@ -18,7 +18,7 @@
     "tw-elements": "^1.0.0-alpha12"
   },
   "devDependencies": {
-    "@types/luxon": "^3.0.0",
+    "@types/luxon": "^3.0.1",
     "@types/react": "^18.0.19",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
