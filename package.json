@@ -12,13 +12,13 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.3",
-    "luxon": "^3.0.4",
+    "luxon": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tw-elements": "^1.0.0-alpha12"
   },
   "devDependencies": {
-    "@types/luxon": "^3.0.1",
+    "@types/luxon": "^3.1.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.1.0",
