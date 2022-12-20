@@ -15,7 +15,7 @@
     "luxon": "^3.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tw-elements": "^1.0.0-alpha12"
+    "tw-elements": "^1.0.0-alpha13"
   },
   "devDependencies": {
     "@types/luxon": "^3.1.0",
