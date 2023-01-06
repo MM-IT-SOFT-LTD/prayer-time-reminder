@@ -1084,9 +1084,9 @@ util-deprecate@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
 
-vite@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-4.0.3.tgz#de27ad3f263a03ae9419cdc8bc07721eadcba8b9"
+vite@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-4.0.4.tgz#4612ce0b47bbb233a887a54a4ae0c6e240a0da31"
   dependencies:
     esbuild "^0.16.3"
     postcss "^8.4.20"
