@@ -1190,9 +1190,9 @@ tw-elements@^1.0.0-alpha13:
     popper.js "^1.16.1"
     tailwindcss "~3.0.7"
 
-typescript@^4.9.4:
-  version "4.9.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.4.tgz#a2a3d2756c079abda241d75f149df9d561091e78"
+typescript@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.4.tgz#b217fd20119bd61a94d4011274e0ab369058da3b"
 
 update-browserslist-db@^1.0.9:
   version "1.0.9"
