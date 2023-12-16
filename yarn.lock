@@ -1120,9 +1120,9 @@ tw-elements@^1.0.0:
     perfect-scrollbar "^1.5.5"
     tailwindcss "3.3.0"
 
-typescript@^5.1.6:
-  version "5.1.6"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.1.6.tgz#02f8ac202b6dad2c0dd5e0913745b47a37998274"
+typescript@^5.3.3:
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.3.tgz#b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37"
 
 update-browserslist-db@^1.0.10, update-browserslist-db@^1.0.11:
   version "1.0.11"
