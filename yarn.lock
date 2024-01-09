@@ -274,10 +274,11 @@
   version "0.17.12"
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.17.12.tgz#3a11d13e9a5b0c05db88991b234d8baba1f96487"
 
-"@headlessui/react@^1.7.14":
-  version "1.7.14"
-  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.14.tgz#75f19552c535113640fe8a3a40e71474f49e89c9"
+"@headlessui/react@^1.7.18":
+  version "1.7.18"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.18.tgz#30af4634d2215b2ca1aa29d07f33d02bea82d9d7"
   dependencies:
+    "@tanstack/react-virtual" "^3.0.0-beta.60"
     client-only "^0.0.1"
 
 "@jridgewell/gen-mapping@^0.3.0":
@@ -351,6 +352,16 @@
 "@popperjs/core@^2.6.0":
   version "2.11.4"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.4.tgz"
+
+"@tanstack/react-virtual@^3.0.0-beta.60":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-virtual/-/react-virtual-3.0.1.tgz#b04c492e4dd5733b72b10a974870880f83ff4698"
+  dependencies:
+    "@tanstack/virtual-core" "3.0.0"
+
+"@tanstack/virtual-core@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.0.0.tgz#637bee36f0cabf96a1d436887c90f138a7e9378b"
 
 "@types/luxon@^3.3.1":
   version "3.3.1"
